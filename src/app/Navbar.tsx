@@ -1,9 +1,11 @@
 import React from 'react'
-import MaxWidthWrapper from './MaxWidthWrapper'
+
 import Link from 'next/link'
-import { buttonVariants } from './ui/button'
+
 import { ArrowRight } from 'lucide-react'
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
+import { buttonVariants } from '@/components/ui/button'
+import MaxWidthWrapper from '@/components/MaxWidthWrapper'
 
 const Navbar = async() => {
     const {getUser}=getKindeServerSession()
@@ -13,10 +15,10 @@ const Navbar = async() => {
 
 
   return (
-   <nav className='sticky z-[100] h-14 inset-x-0 top-0 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all'>
+   <nav  className='sticky z-[100] h-14 inset-x-0 top-0 w-full border-b border-gray-200 bg-white/100 backdrop-blur-lg transition-all'>
     <MaxWidthWrapper>
         <div className='flex h-14 items-center justify-between border-b border-zinc-200'>
-            <Link href="/" className="flex z-40 font-semibold">
+            <Link href="/" className="flex z-40 font-semibold text-black" >
            
            case<span className='text-green-600'>cobra</span>
            
@@ -55,6 +57,7 @@ const Navbar = async() => {
          className={buttonVariants({
             size:'sm',
             variant:"ghost",
+            className:"text-black"
         })}>
             Sign Up
         </Link>
@@ -63,7 +66,8 @@ const Navbar = async() => {
          href="/api/auth/login"
          className={buttonVariants({
             size:'sm',
-            className:"hidden sm:flex items-center gap-1",
+            variant:'ghost',
+            className:"hidden sm:flex items-center gap-1 text-black",
         })}>
           Login
            <ArrowRight className="ml-1.5 h-5 w-5"/>
